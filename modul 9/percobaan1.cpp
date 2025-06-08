@@ -118,7 +118,6 @@ int main() {
     cout<<"Data setelah delete node awal : ";
     tampil();
 
-
     //delete setelah node tertentu 
     cout<<"Masukkan data yang akan dicari : ";
     cin>>x;
