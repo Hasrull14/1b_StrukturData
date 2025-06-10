@@ -6,7 +6,7 @@ struct node{
     node *next;
 };
 
-node *head, *tail, *bantu, *hapus, *insert, *cari;
+node *head, *tail, *bantu, *hapus, *insert;
 
 void menu(){
     cout<<"\n-------Operasi Stack--------"<<endl;
@@ -51,20 +51,20 @@ int main() {
         
         case 2:
             if(head!=NULL){
-                cari = head;
-                if(cari->next == NULL){
+                tail = head;
+                if(head->next == NULL){
                     cout<<"data : "<<head->data<<" telah dihapus "<<endl; //cara 1
                     // hapus = head;
                     // delete hapus;//kalo head di pake lagi, jangan hapus head karna kalo di delete berarti head akan hilang, set saja head ke NULL maka bisa di pake lagi
                     head = NULL;
                 }else{
-                    while(cari->next->next != NULL){
-                        cari=cari->next;
+                    while(tail->next->next != NULL){
+                        tail=tail->next;
                     }
-                    cout<<"data : "<<cari->next->data<<" telah dihapus "<<endl; //cara 1
-                    hapus = cari->next;
+                    cout<<"data : "<<tail->next->data<<" telah dihapus "<<endl; //cara 1
+                    hapus = tail->next;
                     cout<<"data : "<<hapus->data<<" telah dihapus "<<endl; //cara 2
-                    cari->next = NULL;
+                    tail->next = NULL;
                     delete hapus;
                 }
             }else{

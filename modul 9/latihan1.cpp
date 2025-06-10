@@ -47,7 +47,7 @@ int main() {
 
 
     //insert setelah node tertentu (x)
-    x = 10;
+    x = 19;
     insert = new node;
     insert->data=35;
     insert->next=NULL;

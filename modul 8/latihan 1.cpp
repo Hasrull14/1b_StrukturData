@@ -44,13 +44,13 @@ int main() {
 
 
     //insert setelah node tertentu (x)
-    x = 10;
+    x = 11;
     insert = new node;
     insert->data=35;
     insert->next=NULL;
     node *after;
     after = head;
-    while (after->data != x){
+    while (after->data != x && after->next != NULL){
         after = after->next;
     }
     if(after->data == x){
@@ -104,9 +104,6 @@ int main() {
     cout<<"Data insert di akhir : ";
     tampil();
 
-
-    // delete head;
-    // delete insert;
 
     //menghapus keseluruhan
     // Hapus seluruh node untuk mencegah memory leak
