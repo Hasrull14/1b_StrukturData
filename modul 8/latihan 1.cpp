@@ -100,7 +100,7 @@ int main() {
         tail = tail->next;
     }
 
-    tail->next = insert; //lalu null diganti dengan insert, supaya next ke node insert
+    tail->next = insert; //lalu tail -> next = null diganti dengan insert, supaya next ke node insert
     cout<<"Data insert di akhir : ";
     tampil();
 

@@ -86,7 +86,7 @@ int main() {
     cout<<head<<endl; //aaaa
 
     after = head; //after jadi mempunyai alamat yang sama dengan head
-    while (after->data != x){
+    while (after->data != x && after->next != NULL){
         after = after->next;
     }
 

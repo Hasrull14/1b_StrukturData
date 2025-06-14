@@ -51,7 +51,7 @@ int main() {
     insert->next=NULL;
     node *after;
     after = head;
-    while (after->data != x){
+    while (after->data != x && after->next != NULL){
         after = after->next;
     }
     if(after->data == x){
