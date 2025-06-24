@@ -121,10 +121,8 @@ int main() {
             insert->next = cari;
             insert->prev = cari->prev;
             cari->prev->next = insert;
-            cari->prev = insert;
-            
+            cari->prev = insert; 
         }
-
     }
     cout<<"Data setelah insert sebelum "<<x<<" : ";
     tampil();   
@@ -158,6 +156,64 @@ int main() {
     cout<<"Data setelah insert setelah "<<x<<" : ";
     tampil();
 
+
+    //--------OPERASI DELETE------------
+    //Delete di awal node
+    hapus = head;
+    head = head->next;
+    head->prev = NULL;
+    hapus->next = NULL;
+    delete hapus;
+    cout<<"Data setelah delete node awal : ";
+    tampil();
+
+    //delete setelah node tertentu
+    cout<<"Masukkan data yang akan dicari : ";
+    cin>>x;
+    cari = head;
+    while(cari->data != x && cari->next != NULL){
+        cari = cari->next;
+    }
+    if(cari->data == x){
+        if(cari->next == NULL){//jika elemen selanjutnya adalah NULL
+            cout<<"tidak ada elemen selanjutnya"<<endl;
+        } else if(cari->next->next==NULL){//jika elemen selanjutnya adalah tail
+            hapus = cari->next;
+            cari->next = NULL;
+            hapus->prev = NULL;
+            delete hapus;
+        }else {//jika elemen selanjutnya bukan NULL
+            hapus = cari->next;
+            cari->next = hapus->next;
+            hapus->next->prev = cari;
+            hapus->next = NULL;
+            hapus->prev = NULL;
+            delete hapus;
+        }
+    }else{
+        cout<<"data tidak ditemukan"<<endl;
+    }
+    cout<<"Delete node setelah "<<x<<" : ";
+    tampil();
+
+    //delete node akhir
+    hapus = head;
+    if(hapus->next==NULL){
+        head = NULL;
+        delete hapus;
+    }else{
+        while(hapus->next != NULL){
+            hapus = hapus->next;
+        }
+    }
+    hapus->prev->next = NULL;
+    hapus->prev = NULL;
+    delete hapus;
+    
+    cout<<"Data setelah delete node terakhir : ";
+    tampil();
+
+    
     system("pause");
     return 0;
 }

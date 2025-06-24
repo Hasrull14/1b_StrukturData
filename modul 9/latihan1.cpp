@@ -53,7 +53,7 @@ int main() {
     insert->next=NULL;
     node *after;
     after = head;
-    while (after->data != x){
+    while (after->data != x&&after->next!=NULL){
         after = after->next;
     }
     if(after->data == x){
@@ -167,7 +167,8 @@ int main() {
     cin>>x;
     cari = head;
 
-   if(head != NULL && head->data==x){
+   //if(head != NULL && head->data==x){
+    if(head->data==x){
         hapus = head; 
         head = hapus->next;
         hapus->next = NULL;
@@ -196,7 +197,7 @@ int main() {
     cari = head;
 
    if(head != NULL && head->data==x){
-        cout<<"Tidak ada data sebelum, karna "<<x<<" adalah head "<<endl;
+        cout<<"Tidak ada data sebelumnya, karna "<<x<<" adalah head "<<endl;
     } else if(head->next != NULL && head->next->data == x){
         hapus = head;
         head = hapus->next;
